@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxim-austin.github.io/strike-iq-site/sitemap.xml

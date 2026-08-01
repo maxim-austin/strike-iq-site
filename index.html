@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StrikeIQ — Bowling Score Tracker &amp; Analytics App for Android</title>
+  <meta name="description" content="StrikeIQ is a free, offline-first bowling tracker for Android. Record every shot lane-side, track leagues and tournaments, and raise your average with pro-level statistics — strike rate, spare conversion, leave patterns, and ball performance.">
+  <meta name="keywords" content="bowling app, bowling score tracker, bowling statistics, bowling analytics, ten pin bowling, league bowling app, tournament bowling, spare conversion, strike rate, bowling ball arsenal, Android bowling app, StrikeIQ, Strike IQ">
+  <meta name="author" content="StrikeIQ">
+  <meta name="theme-color" content="#0e1116">
+  <link rel="canonical" href="https://maxim-austin.github.io/strike-iq-site/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrikeIQ">
+  <meta property="og:title" content="StrikeIQ — Know every shot. Grow every game.">
+  <meta property="og:description" content="The offline-first bowling tracker for Android. Per-shot scoring, league &amp; tournament structure, and statistics that show you exactly where your next pins are.">
+  <meta property="og:url" content="https://maxim-austin.github.io/strike-iq-site/">
+  <meta property="og:image" content="https://maxim-austin.github.io/strike-iq-site/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StrikeIQ app — bowling scoring screen with frame-by-frame marks and statistics">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StrikeIQ — Know every shot. Grow every game.">
+  <meta name="twitter:description" content="The offline-first bowling tracker for Android. Per-shot scoring and pro-level statistics for league and tournament bowlers.">
+  <meta name="twitter:image" content="https://maxim-austin.github.io/strike-iq-site/assets/img/og-image.png">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;650;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Strike IQ",
+    "alternateName": "StrikeIQ",
+    "description": "Offline-first bowling performance tracker for ten-pin bowlers. Record every shot lane-side, organize leagues and tournaments, track your ball arsenal, and grow your game with derived statistics: strike rate, spare conversion, leave frequency, split conversion, and per-ball performance.",
+    "operatingSystem": "Android 8.0+",
+    "applicationCategory": "SportsApplication",
+    "softwareVersion": "0.21.0",
+    "url": "https://maxim-austin.github.io/strike-iq-site/",
+    "image": "https://maxim-austin.github.io/strike-iq-site/assets/img/icons/icon-512.png",
+    "screenshot": [
+      "https://maxim-austin.github.io/strike-iq-site/assets/img/screens/scoring.webp",
+      "https://maxim-austin.github.io/strike-iq-site/assets/img/screens/home.webp",
+      "https://maxim-austin.github.io/strike-iq-site/assets/img/screens/stats.webp"
+    ],
+    "author": { "@type": "Organization", "name": "StrikeIQ", "email": "strikeiq.bowling@gmail.com" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is StrikeIQ free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. StrikeIQ is free, with no ads, no subscriptions, and no in-app purchases." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does StrikeIQ need an internet connection or an account?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. StrikeIQ works fully offline and does not even request the Android INTERNET permission. There are no accounts, no cloud sync, no ads, and no analytics SDKs — your bowling data stays on your device." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Android versions does StrikeIQ support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "StrikeIQ runs on Android 8.0 (API 26) and newer phones." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I move my bowling history to a new phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can export a portable, checksum-verified backup file to any location you choose and import it on another device. Android's own device-to-device transfer and Auto Backup are supported as well." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does StrikeIQ support 9-Pin No-Tap?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. 9-Pin No-Tap is a first-class, event-scoped scoring format. StrikeIQ preserves your raw pinfall and separates natural strikes from scoring strikes so no-tap events never distort your real statistics." }
+      },
+      {
+        "@type": "Question",
+        "name": "When will StrikeIQ be available on Google Play?",
+        "acceptedAnswer": { "@type": "Answer", "text": "StrikeIQ is in final preparation for Google Play publication. Email strikeiq.bowling@gmail.com to get a note the day it goes live." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ======================= NAV ======================= -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="StrikeIQ home">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="34" cy="30" r="7.5" fill="#F5F7FA"/>
+          <circle cx="50" cy="30" r="7.5" fill="#F5F7FA"/>
+          <circle cx="66" cy="30" r="7.5" fill="#F5F7FA"/>
+          <circle cx="40" cy="48" r="7.5" fill="#F5F7FA"/>
+          <circle cx="60" cy="48" r="7.5" fill="#F5F7FA"/>
+          <circle cx="50" cy="68" r="7.5" fill="#FF6A2B"/>
+        </svg>
+        <span>Strike<span class="iq">IQ</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#features">Features</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#data">Your data</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="#download">Get the app</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ======================= HERO ======================= -->
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <span class="eyebrow">Pro bowling tracking &amp; analytics · Android</span>
+        <h1 class="display">Know every shot.<span class="accent-line">Grow every game.</span></h1>
+        <p class="lede">StrikeIQ turns league nights and tournament blocks into per-shot data — strike rates, spare conversions, leave patterns, and ball performance that show you exactly where your next pins are hiding.</p>
+        <div class="hero-cta">
+          <!-- TODO: when the Play listing is live, replace with:
+               <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.strikeiq">Get it on Google Play</a> -->
+          <a class="btn btn-primary" href="mailto:strikeiq.bowling@gmail.com">Get notified at launch</a>
+          <a class="btn btn-ghost" href="#features">See it in action</a>
+        </div>
+        <div class="hero-trust" role="list">
+          <span class="pill" role="listitem"><span class="dot"></span>Free · no ads</span>
+          <span class="pill" role="listitem"><span class="dot"></span>100% offline</span>
+          <span class="pill" role="listitem"><span class="dot"></span>No account needed</span>
+          <span class="pill" role="listitem"><span class="dot"></span>Coming soon to Google Play</span>
+        </div>
+
+        <div class="hero-visual">
+          <div class="phone phone-md phone-left reveal">
+            <img src="assets/img/screens/home.webp" alt="StrikeIQ home screen with league and tournament cards and year-over-year performance statistics" width="720" height="1440" loading="eager">
+          </div>
+          <div class="phone phone-lg reveal">
+            <img src="assets/img/screens/scoring.webp" alt="StrikeIQ scoring screen showing a 205 game with frame-by-frame strike and spare marks, split detection, pin deck, and ball selector" width="720" height="1440" loading="eager" fetchpriority="high">
+          </div>
+          <div class="phone phone-md phone-right reveal">
+            <img src="assets/img/screens/stats.webp" alt="StrikeIQ statistics screen with average, high game, strike rate, and spare conversion metrics" width="720" height="1440" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PROOF BAR ======================= -->
+    <section class="proof" aria-label="StrikeIQ by the numbers">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="proof-item reveal">
+            <div class="num">9.4<em>ms</em></div>
+            <div class="lbl">P95 frame draw at 120&nbsp;Hz — scoring stays silky in the middle of league night</div>
+          </div>
+          <div class="proof-item reveal">
+            <div class="num">25<em>k</em></div>
+            <div class="lbl">games in the stress-test fixture behind the statistics engine</div>
+          </div>
+          <div class="proof-item reveal">
+            <div class="num"><em>0</em></div>
+            <div class="lbl">permissions requested — no internet, no location, no contacts, nothing</div>
+          </div>
+          <div class="proof-item reveal">
+            <div class="num">20<em>+</em></div>
+            <div class="lbl">statistical dimensions derived from every saved shot</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= WHY ======================= -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why StrikeIQ</span>
+          <h2>Serious bowlers don't guess.<br>They review the tape.</h2>
+          <p class="lede">Averages tell you <em>that</em> you're stuck. Shot-level data tells you <em>why</em>. StrikeIQ was built around one idea: record every delivery honestly, and the path to a higher average writes itself.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <div class="glyph" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="6" r="2.2" fill="currentColor"/><circle cx="12" cy="6" r="2.2" fill="currentColor"/><circle cx="17" cy="6" r="2.2" fill="currentColor"/><circle cx="9.5" cy="12" r="2.2" fill="currentColor"/><circle cx="14.5" cy="12" r="2.2" fill="currentColor"/><circle cx="12" cy="18" r="2.2" fill="currentColor"/></svg>
+            </div>
+            <h3>Every shot matters</h3>
+            <p>Tap the pins left standing, pick the ball, note the target and speed — all in the seconds between deliveries. Each frame becomes data a coach could actually work with.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="glyph" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19L9 13l3.5 3L20 7"/><path d="M15 7h5v5"/></svg>
+            </div>
+            <h3>Statistics you can trust</h3>
+            <p>Every percentage ships with its sample — 11/15 spares, 6/6 singles. Nothing is hand-maintained: correct a frame from three weeks ago and your whole history recomputes instantly.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="glyph" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M5 7h14v3a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5V7z"/><path d="M9 21h6M12 15v6"/></svg>
+            </div>
+            <h3>Built like real bowling</h3>
+            <p>Leagues and tournaments hold dated events. Events hold games, games hold shots. Oil patterns, lane pairs, and 9-Pin No-Tap are first-class citizens — not afterthoughts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FEATURES ======================= -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2>From ball return to breakdown<br>in a few taps.</h2>
+        </div>
+
+        <!-- 1. Scoring -->
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">Lane-side scoring</span>
+            <h3>Score one-handed, between shots</h3>
+            <p>Designed for the ball return, not the desk: big targets, high contrast, and a pin deck you tap to mark what's left standing.</p>
+            <ul class="feature-check">
+              <li>Quick actions for strikes, spares, and misses — with fouls, fill balls, and every tenth-frame case handled</li>
+              <li>Autosave after every shot; games complete themselves</li>
+              <li>Live score plus your maximum-possible projection</li>
+              <li>Algorithmic split detection with console-style circled marks</li>
+            </ul>
+            <div class="feature-tags">
+              <span class="pill">Autosave</span>
+              <span class="pill">Split detection</span>
+              <span class="pill">9-Pin No-Tap</span>
+              <span class="pill">120 Hz smooth</span>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone">
+              <img src="assets/img/screens/scoring.webp" alt="Scoring a 205 game in StrikeIQ: frame strip with strikes, spares, and a circled split, plus the tap-to-score pin deck" width="720" height="1440" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Frame correction / review -->
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">Correctable history</span>
+            <h3>Fix frame six on the drive home</h3>
+            <p>Mis-tapped a leave three games ago? Open the game, tap the frame, and repair it. StrikeIQ replaces just that frame — legally, with the scoring engine re-validating everything downstream.</p>
+            <ul class="feature-check">
+              <li>Walk shot-by-shot through any saved game</li>
+              <li>Read-only pin-deck previews of every historical delivery</li>
+              <li>Edits stay in a buffer until you explicitly save</li>
+              <li>Even the ball on a past shot can be corrected</li>
+            </ul>
+            <div class="feature-tags">
+              <span class="pill">Shot-by-shot review</span>
+              <span class="pill">Safe editing</span>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone">
+              <img src="assets/img/screens/event.webp" alt="StrikeIQ league event hub showing nine summary metrics, a Start Game button, and the list of completed games with scores 205, 200, and 196" width="720" height="1440" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Shot context -->
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">Pro context</span>
+            <h3>Capture the shot behind the score</h3>
+            <p>The scoresheet says 9/. The context says: 15&nbsp;mph, targeting board 10 at the arrows, ball exited at board 8, light hit. That's the difference between a note and a lesson.</p>
+            <ul class="feature-check">
+              <li>Target and result boards — at your feet, the foul line, the arrows, and the breakpoint</li>
+              <li>Ball speed in 0.5&nbsp;mph steps</li>
+              <li>Nine shot-quality presets, from High Flush to Brooklyn to Washout</li>
+              <li>Target and ball stick between shots for fast repeat entry</li>
+            </ul>
+            <div class="feature-tags">
+              <span class="pill">Optional per shot</span>
+              <span class="pill">Free-text notes</span>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone">
+              <img src="assets/img/screens/context.webp" alt="StrikeIQ Pro context panel with target and result board steppers, speed control, and shot quality presets like High Flush, Pocket, and Brooklyn" width="720" height="1440" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Arsenal -->
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">Arsenal</span>
+            <h3>Your bag, with a memory</h3>
+            <p>Every ball carries its layout, surface, role, and maintenance history — and StrikeIQ learns how you actually use it.</p>
+            <ul class="feature-check">
+              <li>Rack-aware defaults: your spare ball is pre-selected on spare attempts, your benchmark on fresh racks</li>
+              <li>Flag spare balls, benchmarks, and specialty pieces</li>
+              <li>Log surface changes and maintenance by date</li>
+              <li>Archive retired balls — they keep their place in your history</li>
+            </ul>
+            <div class="feature-tags">
+              <span class="pill">Per-shot ball tracking</span>
+              <span class="pill">Maintenance log</span>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone">
+              <img src="assets/img/screens/arsenal.webp" alt="StrikeIQ arsenal screen listing four bowling balls with active status, spare ball flag, brand, and weight" width="720" height="1440" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Stats -->
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">Statistics engine</span>
+            <h3>Slice your game any way you bowl it</h3>
+            <p>Filter everything by date range, league or tournament, scoring format, ball, center, and oil pattern. Then drill into the leaves that are actually costing you pins.</p>
+            <ul class="feature-check">
+              <li>Leave frequency for every pin combination you've faced</li>
+              <li>Conversion rate per leave — how you really do against the 10-pin</li>
+              <li>Performance by ball, center, pattern, lane pair, and event type</li>
+              <li>Sub-second even against a 25,000-game history</li>
+            </ul>
+            <div class="feature-tags">
+              <span class="pill">6 filter dimensions</span>
+              <span class="pill">Leave analytics</span>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone">
+              <img src="assets/img/screens/leaves.webp" alt="StrikeIQ leave conversion list showing pin combinations like 2-4-5 and 3-6-10 with conversion percentages, and arsenal performance by ball" width="720" height="1440" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ANALYTICS ======================= -->
+    <section class="section" id="analytics">
+      <div class="container">
+        <div class="analytics">
+          <div class="section-head">
+            <span class="eyebrow">The numbers</span>
+            <h2>What StrikeIQ measures</h2>
+            <p class="lede">Twenty-plus dimensions, derived live from your saved shots — never hand-entered, never stale.</p>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric reveal"><div class="k">Strike rate</div><div class="v">Scoring vs natural</div><div class="d">No-tap nines never inflate your real strike ball</div></div>
+            <div class="metric reveal"><div class="k">Spare conversion</div><div class="v">With sample sizes</div><div class="d">11/15 shown next to 73.3% — small samples can't lie</div></div>
+            <div class="metric reveal"><div class="k">Leave frequency</div><div class="v">Every combination</div><div class="d">How often each rack shows up after your first ball</div></div>
+            <div class="metric reveal"><div class="k">Per-leave conversion</div><div class="v">10-pin? 7-10?</div><div class="d">Your make rate for every leave you've ever faced</div></div>
+            <div class="metric reveal"><div class="k">Single &amp; corner pins</div><div class="v">Conversion %</div><div class="d">The money spares, tracked separately</div></div>
+            <div class="metric reveal"><div class="k">Split conversion</div><div class="v">Detected, not typed</div><div class="d">Headpin-down algorithm covers all ten-pin splits</div></div>
+            <div class="metric reveal"><div class="k">First-ball average</div><div class="v">Raw pinfall</div><div class="d">Carry quality on every legal full-rack delivery</div></div>
+            <div class="metric reveal"><div class="k">High game &amp; series</div><div class="v">Rolling windows</div><div class="d">Best game and best 3-game series inside any event</div></div>
+            <div class="metric reveal"><div class="k">Ball performance</div><div class="v">Average by ball</div><div class="d">Games, average, and high game for every piece in the bag</div></div>
+            <div class="metric reveal"><div class="k">Center &amp; pattern</div><div class="v">House by house</div><div class="d">Where you score — and on which oil</div></div>
+            <div class="metric reveal"><div class="k">Lane pair</div><div class="v">Pair-level splits</div><div class="d">See the pair bias before your opponent does</div></div>
+            <div class="metric reveal"><div class="k">Year over year</div><div class="v">Season deltas</div><div class="d">This calendar year vs last, right on the home screen</div></div>
+          </div>
+          <p class="analytics-note"><strong>Honest by design:</strong> every metric ships with its sample (<em>seen 24 · 12/18 converted</em>), and correcting any historical frame recomputes everything instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PRINCIPLES ======================= -->
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The rules we build by</span>
+          <h2>Opinionated, on purpose</h2>
+        </div>
+        <div class="quotes-grid">
+          <figure class="quote-card reveal">
+            <blockquote>Fast lane-side scoring: one-handed use in a bowling center, large actions, high contrast, seconds between shots.</blockquote>
+            <figcaption><cite>— Strike IQ product constitution</cite></figcaption>
+          </figure>
+          <figure class="quote-card reveal">
+            <blockquote>Every shot matters: statistics are derived from recorded facts, never hand-maintained.</blockquote>
+            <figcaption><cite>— Strike IQ product constitution</cite></figcaption>
+          </figure>
+          <figure class="quote-card reveal">
+            <blockquote>Offline-first: the local database is the source of truth. No accounts, no cloud, no server.</blockquote>
+            <figcaption><cite>— Strike IQ product constitution</cite></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= DATA OWNERSHIP ======================= -->
+    <section class="section data-section" id="data">
+      <div class="container">
+        <div class="feature-row">
+          <div class="feature-copy reveal">
+            <span class="eyebrow">Your data</span>
+            <h3>Your game. Your device.<br>Nobody else's business.</h3>
+            <p>StrikeIQ doesn't just promise privacy — it's built so the question never comes up.</p>
+            <div class="data-list">
+              <div class="data-item">
+                <div class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 4.6-3.2 7.9-8 9-4.8-1.1-8-4.4-8-9V7z"/></svg></div>
+                <div>
+                  <h4>No internet permission. Literally.</h4>
+                  <p>The app never requests network access, so the operating system itself guarantees your bowling data can't be transmitted. No accounts, no ads, no analytics SDKs.</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <div class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M8 8l4-4 4 4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></div>
+                <div>
+                  <h4>Portable, verifiable backups</h4>
+                  <p>Export your entire history as a checksum-verified file to any location you choose — Drive, SD card, wherever. It's your file, readable forever.</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <div class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></div>
+                <div>
+                  <h4>Restore without fear</h4>
+                  <p>Imports are validated before a single row changes, and a private recovery snapshot of your previous data is kept until you say otherwise.</p>
+                </div>
+              </div>
+              <div class="data-item">
+                <div class="glyph" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M12 17.5h.01"/></svg></div>
+                <div>
+                  <h4>New phone ready</h4>
+                  <p>Android Auto Backup and device-to-device transfer carry your history to your next phone automatically.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="feature-visual reveal">
+            <div class="phone">
+              <img src="assets/img/screens/settings.webp" alt="StrikeIQ settings screen with portable backup export and import controls and the privacy policy section" width="720" height="1440" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ROADMAP ======================= -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Roadmap</span>
+          <h2>On the lane ahead</h2>
+          <p class="lede">Concept previews of what we're designing next. Rendered in the app's design language — not yet in the shipping build.</p>
+        </div>
+        <div class="roadmap-grid">
+
+          <!-- Photo score import -->
+          <div class="roadmap-item reveal">
+            <div class="phone">
+              <div class="mock" role="img" aria-label="Concept preview of importing scores by photographing the house monitor">
+                <div class="mock-bar"><span class="back">&#8592;</span><span>Import scores</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></div>
+                <div class="mock-cam">Point at the house monitor<br>and StrikeIQ reads the sheet</div>
+                <div class="mock-panel accent">
+                  <span class="mock-label">Detected · Lanes 9–10</span>
+                  <div class="mock-row"><span class="l">Game 1 &nbsp;<span class="s">10 frames</span></span><span class="v">205</span></div>
+                  <div class="mock-row"><span class="l">Game 2 &nbsp;<span class="s">10 frames</span></span><span class="v">200</span></div>
+                  <div class="mock-row"><span class="l">Game 3 &nbsp;<span class="s">10 frames</span></span><span class="v">196</span></div>
+                </div>
+                <div class="mock-btn">Add to league event</div>
+                <div class="mock-btn ghost">Retake photo</div>
+              </div>
+            </div>
+            <h3>Scoreboard photo import</h3>
+            <p>Snap the monitor after the set — frames land in the right event, ready to enrich with context.</p>
+            <span class="pill">In design</span>
+          </div>
+
+          <!-- Cloud backup -->
+          <div class="roadmap-item reveal">
+            <div class="phone">
+              <div class="mock" role="img" aria-label="Concept preview of optional cloud backup to a user-controlled Google Drive">
+                <div class="mock-bar"><span class="back">&#8592;</span><span>Backup</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></div>
+                <div class="mock-panel accent">
+                  <span class="mock-label">Optional · Your storage</span>
+                  <div class="mock-row"><span class="l">Google Drive</span><span class="mock-toggle" aria-hidden="true"></span></div>
+                  <div class="mock-row"><span class="l">Last backup</span><span class="v teal">2 min ago</span></div>
+                  <div class="mock-row"><span class="l">Frequency</span><span class="l" style="color:#9aa4b2">After each event</span></div>
+                </div>
+                <div class="mock-panel">
+                  <span class="mock-label">Uploading · 72%</span>
+                  <div class="mock-progress"><i></i></div>
+                  <p class="mock-sub">strikeiq-backup-2026-08-01.zip · checksum verified</p>
+                </div>
+                <div class="mock-btn">Back up now</div>
+              </div>
+            </div>
+            <h3>Cloud backup, your way</h3>
+            <p>An optional, user-owned backup target like Google Drive. Still no accounts, still your file.</p>
+            <span class="pill">Exploring</span>
+          </div>
+
+          <!-- Multi-bowler -->
+          <div class="roadmap-item reveal">
+            <div class="phone">
+              <div class="mock" role="img" aria-label="Concept preview of multi-bowler profiles with averages for teammates or coaching clients">
+                <div class="mock-bar"><span class="back">&#8592;</span><span>Bowlers</span><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></div>
+                <div class="mock-panel accent">
+                  <span class="mock-label">Profiles · 3 active</span>
+                  <div class="mock-row"><span class="mock-avatar">MK</span><span class="l" style="flex:1">Max &nbsp;<span class="s">benchmark: Venom Shock</span></span><span class="v">200.3</span></div>
+                  <div class="mock-row"><span class="mock-avatar teal">LT</span><span class="l" style="flex:1">Lena &nbsp;<span class="s">spare focus drill</span></span><span class="v">187.4</span></div>
+                  <div class="mock-row"><span class="mock-avatar">RD</span><span class="l" style="flex:1">Ravi &nbsp;<span class="s">new: two-handed</span></span><span class="v">172.9</span></div>
+                </div>
+                <div class="mock-panel">
+                  <span class="mock-label">Coach view</span>
+                  <p class="mock-sub">Compare spare conversion across bowlers and assign focus leaves for next practice.</p>
+                </div>
+                <div class="mock-btn">Add bowler</div>
+              </div>
+            </div>
+            <h3>Multi-bowler &amp; coaching</h3>
+            <p>Track teammates, family, or coaching clients side by side — every bowler with a full stat book.</p>
+            <span class="pill">Researching</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FAQ ======================= -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Straight answers</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Is StrikeIQ free?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Yes — free, with no ads, no subscriptions, and no in-app purchases.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Does it need internet or an account?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>No. StrikeIQ works fully offline and doesn't even request the Android internet permission — the OS itself guarantees your data can't leave the device. No accounts, no cloud, no analytics.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Which phones does it run on?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Any Android phone on Android 8.0 (API 26) or newer. The app is portrait-first and tuned for one-handed use at the lanes, verified up to 200% font scale for accessibility.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I move my history to a new phone?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Yes, two ways: export a portable, checksum-verified backup file and import it anywhere, or let Android's device-to-device transfer and Auto Backup carry the database across automatically.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Does it handle 9-Pin No-Tap?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>Yes — as an event-scoped scoring format, not a hack. Raw pinfall is preserved, no-tap strikes are marked distinctly, and your natural strike rate is reported separately so sport-shot stats stay honest.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>When does it hit Google Play?<span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq-body"><p>The listing is in final preparation. <a href="mailto:strikeiq.bowling@gmail.com">Drop us an email</a> and you'll get the link the day it's live.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= DOWNLOAD ======================= -->
+    <section class="section" id="download">
+      <div class="container">
+        <div class="download">
+          <span class="eyebrow" style="justify-content:center">Free · Android 8.0+</span>
+          <h2>Bring StrikeIQ to your next league night</h2>
+          <p class="lede">Start building the shot-level history that turns plateaus into progress.</p>
+          <div class="hero-cta">
+            <!-- TODO: when the Play listing is live, replace with:
+                 <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.strikeiq">Get it on Google Play</a> -->
+            <a class="btn btn-primary" href="mailto:strikeiq.bowling@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.5v17c0 .6.7 1 1.2.6l13.4-8.2c.5-.3.5-1 0-1.3L5.2 3C4.7 2.6 4 3 4 3.5z"/></svg>
+              Get notified at launch
+            </a>
+            <a class="btn btn-ghost" href="#features">Tour the features</a>
+          </div>
+          <p class="fine">Coming soon to Google Play · v0.21.0 · No ads, no account, no internet required</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="StrikeIQ home">
+            <svg viewBox="0 0 100 100" aria-hidden="true" width="28" height="28">
+              <circle cx="34" cy="30" r="7.5" fill="#F5F7FA"/>
+              <circle cx="50" cy="30" r="7.5" fill="#F5F7FA"/>
+              <circle cx="66" cy="30" r="7.5" fill="#F5F7FA"/>
+              <circle cx="40" cy="48" r="7.5" fill="#F5F7FA"/>
+              <circle cx="60" cy="48" r="7.5" fill="#F5F7FA"/>
+              <circle cx="50" cy="68" r="7.5" fill="#FF6A2B"/>
+            </svg>
+            <span>Strike<span class="iq">IQ</span></span>
+          </a>
+          <p>Pro bowling tracking &amp; analytics for ten-pin bowlers who treat league night like it matters.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+            <li><a href="#data">Your data</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:strikeiq.bowling@gmail.com">strikeiq.bowling@gmail.com</a></li>
+            <li><a href="#download">Get the app</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 StrikeIQ. All rights reserved.</span>
+        <span><a href="privacy.html">Privacy &amp; Data Safety</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var toggle = document.getElementById('navToggle');
+      var onScroll = function () {
+        nav.classList.toggle('scrolled', window.scrollY > 8);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('.nav-links a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy &amp; Data Safety — Strike IQ</title>
+  <meta name="description" content="Strike IQ privacy policy and data safety worksheet. Strike IQ stores all bowling data locally on your device, has no internet permission, no accounts, no ads, and no analytics.">
+  <meta name="theme-color" content="#0e1116">
+  <link rel="canonical" href="https://maxim-austin.github.io/strike-iq-site/privacy.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="StrikeIQ">
+  <meta property="og:title" content="Privacy &amp; Data Safety — Strike IQ">
+  <meta property="og:description" content="Strike IQ stores all bowling data locally on your device. No internet permission, no accounts, no ads, no analytics.">
+  <meta property="og:url" content="https://maxim-austin.github.io/strike-iq-site/privacy.html">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;650;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav scrolled" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="StrikeIQ home">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="34" cy="30" r="7.5" fill="#F5F7FA"/>
+          <circle cx="50" cy="30" r="7.5" fill="#F5F7FA"/>
+          <circle cx="66" cy="30" r="7.5" fill="#F5F7FA"/>
+          <circle cx="40" cy="48" r="7.5" fill="#F5F7FA"/>
+          <circle cx="60" cy="48" r="7.5" fill="#F5F7FA"/>
+          <circle cx="50" cy="68" r="7.5" fill="#FF6A2B"/>
+        </svg>
+        <span>Strike<span class="iq">IQ</span></span>
+      </a>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="index.html" style="padding:10px 20px;font-size:14.5px">← Back to site</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="doc">
+    <div class="container">
+      <div class="doc-inner">
+        <span class="eyebrow">Strike IQ · Android</span>
+        <h1>Privacy And Data Safety Worksheet</h1>
+        <p class="doc-meta">This worksheet records the current repository behavior for the release owner. The owner remains responsible for accurate Play Console answers and a public privacy policy that matches the exact artifact being submitted. The reviewed public privacy policy is published <a href="#privacy-policy">below on this page</a>.</p>
+
+        <h2 id="technical-facts">Current Technical Facts</h2>
+        <ul>
+          <li>Strike IQ has no <strong>INTERNET</strong> permission.</li>
+          <li>There are no accounts, cloud sync, ads, analytics, crash-reporting SDKs, or server APIs.</li>
+          <li>Bowling history, shot context, equipment, and statistics remain in the local Room database.</li>
+          <li>Statistics are calculated locally from saved bowling facts.</li>
+          <li>Portable export is explicitly initiated by the user and written to a document location selected through Android's document provider.</li>
+          <li>Import reads a user-selected file, validates it locally, and replaces local data only after confirmation.</li>
+          <li>Android platform backup is enabled for the Room database only. Depending on the user's Android backup settings and transport availability, Android may store and restore that database through platform backup or device-to-device setup.</li>
+          <li>Strike IQ does not receive, operate, or inspect the platform backup; portable exports remain user-controlled files.</li>
+          <li>Before replace-all import, the app keeps one recovery ZIP in private no-backup storage. It is not transmitted and is removed with app storage.</li>
+          <li>Deleting app data or uninstalling removes installed local history; recovery then depends on an available Android restore/device transfer or a retained portable export.</li>
+        </ul>
+
+        <h2 id="data-safety">Data Safety Draft</h2>
+        <p>For the current artifact, the technical implementation supports these draft answers:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Question</th><th>Draft answer</th><th>Evidence / caveat</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Does the app collect user data by transmitting it to the developer?</td>
+                <td>No</td>
+                <td>No network permission or transmitting SDK; Android's OS-managed backup transport and user-selected document export do not send data to Strike IQ infrastructure. Confirm final Play definitions at submission.</td>
+              </tr>
+              <tr>
+                <td>Does the app share user data with another company or organization?</td>
+                <td>No</td>
+                <td>No third-party transmission path exists.</td>
+              </tr>
+              <tr>
+                <td>Is all user data encrypted in transit?</td>
+                <td>Review at submission</td>
+                <td>Strike IQ has no app-owned transmission. Android backup transport is platform-managed; the release owner must answer using current Play definitions and platform behavior.</td>
+              </tr>
+              <tr>
+                <td>Can users request server-side deletion?</td>
+                <td>Not applicable</td>
+                <td>There is no account or server copy; installed data can be removed through Android app-data controls/uninstall.</td>
+              </tr>
+              <tr>
+                <td>Does the app offer account creation?</td>
+                <td>No</td>
+                <td>No account system exists.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The release owner must recheck the merged manifest, dependency graph, and exact Play definitions for every release. Adding any networked SDK or data transfer invalidates this worksheet and requires a new approved spec/ADR.</p>
+
+        <h2 id="reviewed-policy">Reviewed Public Privacy Policy Copy</h2>
+        <p>This copy matches the native in-app policy implemented under Spec 16 (Mandatory In-App Privacy Policy Access). Before any non-internal Play track, obtain appropriate review and compare this published copy with the exact in-app policy and Data Safety answers.</p>
+
+        <div class="policy-box" id="privacy-policy">
+          <h3>Privacy Policy For Strike IQ</h3>
+          <p><strong>Effective date:</strong> July 22, 2026</p>
+          <p><strong>Developer:</strong> StrikeIQ</p>
+          <p><strong>Privacy contact:</strong> <a href="mailto:strikeiq.bowling@gmail.com">strikeiq.bowling@gmail.com</a></p>
+
+          <h4>Who Operates Strike IQ</h4>
+          <p>Strike IQ is operated by StrikeIQ. This policy explains how Strike IQ handles information in the Android app.</p>
+
+          <h4>Data Stored On Your Device</h4>
+          <p>Strike IQ stores bowling leagues, tournaments, events, games, frames, shots, shot context, notes, bowling balls, maintenance history, and derived statistics locally on your device.</p>
+
+          <h4>Data Collection And Sharing</h4>
+          <p>Strike IQ has no account system or developer-operated server. The app does not send your bowling data to the developer, sell it, or share it with other companies. It contains no advertising, analytics, or crash-reporting SDK.</p>
+
+          <h4>Android Backup And Device Transfer</h4>
+          <p>When Android device backup is enabled, Android may back up and restore the Strike IQ database through platform backup or device-to-device setup. Android and your device or account settings control this process. Strike IQ and its developer do not receive, inspect, or control the backup, and restoration is not guaranteed.</p>
+
+          <h4>Portable Export, Import, And Local Recovery</h4>
+          <p>You can export a portable Strike IQ backup to a document location you choose. Import reads a file you select, validates it locally, and replaces installed data only after confirmation. Before replacement, Strike IQ may keep one private recovery copy inside app storage. Exported files remain under your control.</p>
+
+          <h4>Security And Data Handling</h4>
+          <p>Installed data is kept in Strike IQ's Android app storage and is available to the app through Android's application sandbox. Portable files are protected according to the storage location and services you choose. Keep exported copies only in locations you trust.</p>
+
+          <h4>Retention And Deletion</h4>
+          <p>Installed bowling data remains until you edit or delete it, clear Strike IQ storage, or uninstall the app. You can discard the private recovery copy from Settings. Clear storage and uninstall remove installed data and private recovery, but do not delete portable files you saved elsewhere. Android may retain a platform backup according to its own settings and policies.</p>
+
+          <h4>Children's Privacy</h4>
+          <p>Strike IQ does not intentionally collect children's data or any user data through a developer-operated server.</p>
+
+          <h4>Changes To This Policy</h4>
+          <p>If Strike IQ's data handling changes, this in-app policy and its effective date will be updated before the changed release is distributed.</p>
+
+          <h4>Contact</h4>
+          <p>For privacy questions, contact StrikeIQ at <a href="mailto:strikeiq.bowling@gmail.com">strikeiq.bowling@gmail.com</a>.</p>
+        </div>
+
+        <div class="doc-footer-nav">
+          <a href="index.html">← Back to StrikeIQ</a>
+          <span style="color:var(--faint);font-size:12.5px">© 2026 StrikeIQ</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
